@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=4 uid="uid://cv0m7q23434px"]
+
+[ext_resource type="PackedScene" uid="uid://vrjqw2e4onkj" path="res://player/player.tscn" id="1_6xmxd"]
+[ext_resource type="Texture2D" uid="uid://buo7f6smuxjvd" path="res://world/grass_background.png" id="1_tcf2h"]
+[ext_resource type="TileSet" uid="uid://da2xd23um1w2q" path="res://world/path/path_tiles.tres" id="2_fn3g3"]
+[ext_resource type="PackedScene" uid="uid://b3evcakvh84xf" path="res://world/bush/bush.tscn" id="3_4717r"]
+[ext_resource type="TileSet" uid="uid://qfdi36p6u71k" path="res://world/cliff/cliff_tiles.tres" id="3_sc4t8"]
+[ext_resource type="PackedScene" uid="uid://dkor0cveupxsa" path="res://world/tree/tree.tscn" id="4_h5o24"]
+[ext_resource type="PackedScene" uid="uid://cn70l61wpygj2" path="res://enemies/bat.tscn" id="7_sc4t8"]
+[ext_resource type="PackedScene" uid="uid://b3nl3lt6qvp8k" path="res://world/grass/grass.tscn" id="8_ai45w"]
+
+[node name="World" type="Node2D"]
+y_sort_enabled = true
+
+[node name="ground" type="Node2D" parent="."]
+z_index = -1
+
+[node name="Parallax2D" type="Parallax2D" parent="ground"]
+repeat_size = Vector2(320, 192)
+
+[node name="Background" type="TextureRect" parent="ground/Parallax2D"]
+offset_right = 320.0
+offset_bottom = 192.0
+texture = ExtResource("1_tcf2h")
+stretch_mode = 1
+
+[node name="path" type="TileMapLayer" parent="ground"]
+tile_map_data = PackedByteArray("AAAFAAAAAQAGAAAAAAAFAAEAAQAAAAIAAAAGAAEAAQAHAAEAAAAEAAAAAQAAAAMAAAAGAAAAAQACAAAAAAAGAAIAAQAEAAMAAAAHAAIAAQAHAAAAAAAHAAMAAQAEAAIAAAAIAAMAAQABAAAAAAAIAAQAAQABAAEAAAAJAAQAAQAFAAIAAAAJAAMAAQACAAAAAAAKAAQAAQABAAAAAAAKAAUAAQABAAIAAAALAAUAAQAJAAAAAAALAAYAAQAAAAIAAAAMAAYAAQAKAAMAAAANAAYAAQAHAAAAAAANAAcAAQAJAAAAAAAOAAcAAQACAAAAAAAMAAUAAQACAAAAAAALAAQAAQACAAAAAAAJAAUAAQABAAIAAAAIAAUAAQABAAIAAAAHAAUAAQAJAAEAAAAGAAUAAQAAAAAAAAAGAAYAAQAJAAEAAAAFAAYAAQAAAAAAAAAHAAYAAQACAAIAAAAGAAcAAQACAAIAAAAFAAcAAQAJAAEAAAAEAAgAAQAJAAEAAAAEAAcAAQAAAAAAAAAFAAgAAQACAAIAAAAEAAkAAQACAAIAAAADAAkAAQAJAAEAAAADAAgAAQAAAAAAAAADAAoAAQACAAIAAAACAAoAAQAAAAIAAAACAAkAAQAAAAAAAAAHAAQAAQAAAAEAAAAMAAcAAQAAAAIAAAANAAgAAQAAAAEAAAAOAAgAAQAFAAIAAAAOAAkAAQABAAEAAAANAAkAAQAAAAEAAAAOAAoAAQABAAIAAAAPAAoAAQABAAIAAAAQAAoAAQABAAIAAAARAAoAAQABAAIAAAASAAoAAQABAAIAAAATAAoAAQACAAIAAAAQAAkAAQABAAAAAAAPAAkAAQAFAAIAAAASAAkAAQABAAAAAAATAAkAAQAFAAAAAAAUAAkAAQABAAMAAAAVAAkAAQACAAMAAAARAAkAAQABAAAAAAAPAAgAAQACAAAAAAANAAoAAQAJAAEAAAAMAAsAAQAJAAEAAAALAAsAAQAAAAAAAAALAAwAAQAAAAEAAAALAA0AAQAAAAEAAAAMAA0AAQACAAEAAAANAAsAAQACAAIAAAAMAAoAAQAAAAAAAAAMAAwAAQACAAEAAAAMAA4AAQACAAEAAAALAA8AAQAAAAEAAAAMAA8AAQACAAEAAAALAA4AAQAAAAEAAAALABAAAQAAAAEAAAAMABAAAQAFAAIAAAALABEAAQAAAAIAAAAMABEAAQAGAAEAAAANABEAAQABAAEAAAAOABEAAQABAAEAAAAPABEAAQABAAEAAAAQABEAAQABAAEAAAARABEAAQABAAEAAAASABEAAQABAAEAAAASABIAAQABAAIAAAARABIAAQABAAIAAAAQABIAAQABAAIAAAAPABIAAQABAAIAAAAOABIAAQABAAIAAAANABIAAQABAAIAAAAMABIAAQAAAAIAAAANABAAAQABAAAAAAATABEAAQABAAEAAAAPABAAAQABAAAAAAAOABAAAQABAAAAAAAQABAAAQABAAAAAAARABAAAQABAAAAAAASABAAAQABAAAAAAATABAAAQABAAAAAAAUABAAAQABAAAAAAAVABEAAQACAAEAAAAVABAAAQACAAAAAAATABIAAQABAAIAAAAUABIAAQABAAIAAAAUABEAAQABAAEAAAAVABIAAQACAAIAAAA=")
+tile_set = ExtResource("2_fn3g3")
+
+[node name="cliff" type="TileMapLayer" parent="ground"]
+tile_map_data = PackedByteArray("AAAHAAYAAwAAAAAAAAAIAAYAAwABAAAAAAAJAAYAAwABAAAAAAAKAAYAAwACAAAAAAAKAAcAAwACAAIAAAAJAAcAAwABAAIAAAAIAAcAAwABAAIAAAAHAAcAAwAAAAIAAAAEAAYAAwACAAAAAAADAAYAAwABAAAAAAACAAYAAwAAAAAAAAACAAcAAwAAAAIAAAADAAcAAwABAAIAAAAEAAcAAwACAAIAAAAAAAQAAwACAAMAAAD//wQAAwAFAAMAAAD//wMAAwACAAEAAAD//wIAAwACAAEAAAD//wEAAwACAAEAAAD+/wEAAwABAAEAAAD+/wIAAwABAAEAAAD9/wMAAwAAAAEAAAD9/wQAAwAAAAIAAAD+/wQAAwABAAIAAAD+/wMAAwABAAEAAAD9/wIAAwAAAAEAAAD9/wEAAwAAAAEAAAD9/wAAAwAAAAEAAAD+/wAAAwABAAEAAAD//wAAAwACAAEAAAD+////AwABAAEAAAD/////AwAFAAEAAAAAAP//AwABAAIAAAABAP//AwACAAIAAAD9////AwAAAAEAAAD9//7/AwAAAAAAAAD+//7/AwABAAAAAAD///7/AwABAAAAAAAAAP7/AwABAAAAAAABAP7/AwACAAAAAAAEAP//AwAAAAMAAAAFAP//AwAGAAMAAAAGAP//AwABAAIAAAAHAP//AwABAAIAAAAGAP7/AwABAAAAAAAFAP7/AwAAAAAAAAAHAP7/AwABAAAAAAAIAP7/AwACAAAAAAAIAP//AwAJAAAAAAAJAP//AwACAAAAAAAJAAAAAwACAAEAAAAIAAAAAwAAAAEAAAAIAAEAAwAAAAEAAAAJAAEAAwACAAEAAAAJAAIAAwAFAAMAAAAKAAIAAwACAAMAAAAIAAIAAwAAAAIAAAA=")
+tile_set = ExtResource("3_sc4t8")
+
+[node name="decoration" type="Node2D" parent="."]
+
+[node name="Bush2" parent="decoration" instance=ExtResource("3_4717r")]
+position = Vector2(19, 103)
+
+[node name="Bush3" parent="decoration" instance=ExtResource("3_4717r")]
+position = Vector2(321, 121)
+
+[node name="Bush4" parent="decoration" instance=ExtResource("3_4717r")]
+position = Vector2(369, 202)
+
+[node name="Bush5" parent="decoration" instance=ExtResource("3_4717r")]
+position = Vector2(230, 72)
+
+[node name="Bush6" parent="decoration" instance=ExtResource("3_4717r")]
+position = Vector2(146, 25)
+
+[node name="Bush7" parent="decoration" instance=ExtResource("3_4717r")]
+position = Vector2(191, 142)
+
+[node name="StaticBody2D" parent="decoration" instance=ExtResource("4_h5o24")]
+position = Vector2(57, 42)
+
+[node name="StaticBody2D3" parent="decoration" instance=ExtResource("4_h5o24")]
+position = Vector2(199, 31)
+
+[node name="StaticBody2D4" parent="decoration" instance=ExtResource("4_h5o24")]
+position = Vector2(42, 222)
+
+[node name="StaticBody2D5" parent="decoration" instance=ExtResource("4_h5o24")]
+position = Vector2(268, 118)
+
+[node name="StaticBody2D6" parent="decoration" instance=ExtResource("4_h5o24")]
+position = Vector2(118, 172)
+
+[node name="bat" parent="." instance=ExtResource("7_sc4t8")]
+position = Vector2(253, 166)
+
+[node name="Player" parent="." instance=ExtResource("1_6xmxd")]
+position = Vector2(154, 126)
+
+[node name="grass" parent="." instance=ExtResource("8_ai45w")]
+position = Vector2(64, 88)
+
+[node name="grass3" parent="." instance=ExtResource("8_ai45w")]
+position = Vector2(64, 72)
+
+[node name="grass4" parent="." instance=ExtResource("8_ai45w")]
+position = Vector2(80, 72)
+
+[node name="grass2" parent="." instance=ExtResource("8_ai45w")]
+position = Vector2(80, 88)
+
+[node name="bat2" parent="." instance=ExtResource("7_sc4t8")]
+position = Vector2(96, 32)
