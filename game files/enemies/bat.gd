@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Bat
 
 const speed:int = 50
-const friction:int = 500
+const friction:int = 200
 
 @onready var animTree:AnimationTree = $AnimationTree
 @onready var sprite:Sprite2D = $"bat sprite"
@@ -23,6 +23,7 @@ func _physics_process(delta: float) -> void:
 				move_and_slide()
 		"Hit":
 			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
+			move_and_slide()
 
 func PlayerSpotted(player:Player) -> void:
 	playerInSight = player
@@ -35,5 +36,7 @@ func PlayerVisible() -> bool:
 	ray_cast_2d.target_position = playerInSight.global_position - global_position
 	return !ray_cast_2d.is_colliding()
 
-func OnHit(_hitbox:Area2D) -> void:
-	queue_free()
+func OnHit(weapon:Weapon) -> void:
+	if weapon:
+		velocity = weapon.hitDirection * 100
+		playback.start("Hit")

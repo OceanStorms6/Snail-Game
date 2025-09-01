@@ -1,8 +1,9 @@
-[gd_scene load_steps=53 format=3 uid="uid://vrjqw2e4onkj"]
+[gd_scene load_steps=54 format=3 uid="uid://vrjqw2e4onkj"]
 
 [ext_resource type="Texture2D" uid="uid://dm77dpmcp5qa3" path="res://player/player.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://b3xqcdkxfh08x" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://cg0x8vr2chn7f" path="res://shadows/medium_shadow.png" id="3_g1dw6"]
+[ext_resource type="Script" uid="uid://cy62i58gsu762" path="res://player/weapon.gd" id="4_yw30f"]
 
 [sub_resource type="Animation" id="Animation_g1dw6"]
 length = 0.001
@@ -503,6 +504,7 @@ transitions = ["Start", "MoveState", SubResource("AnimationNodeStateMachineTrans
 graph_offset = Vector2(-24, -23)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_g1dw6"]
+graph_offset = Vector2(-123, 81)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_rkbax")
 nodes/StateMachine/position = Vector2(-66.6667, 150)
 nodes/output/position = Vector2(350, 183.333)
@@ -548,8 +550,8 @@ position = Vector2(0, 3)
 texture = ExtResource("3_g1dw6")
 
 [node name="sword" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 5
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("4_yw30f")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="sword"]
-polygon = PackedVector2Array(6, -5, 17, -5, 18, -4, 18, -3, 17, -2, 6, -2)
