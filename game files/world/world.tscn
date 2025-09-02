@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=4 uid="uid://cv0m7q23434px"]
 
-[ext_resource type="PackedScene" uid="uid://vrjqw2e4onkj" path="res://player/player.tscn" id="1_6xmxd"]
+[ext_resource type="PackedScene" uid="uid://vrjqw2e4onkj" path="res://entities/player/player.tscn" id="1_6xmxd"]
 [ext_resource type="Texture2D" uid="uid://buo7f6smuxjvd" path="res://world/grass_background.png" id="1_tcf2h"]
 [ext_resource type="TileSet" uid="uid://da2xd23um1w2q" path="res://world/path/path_tiles.tres" id="2_fn3g3"]
 [ext_resource type="PackedScene" uid="uid://b3evcakvh84xf" path="res://world/bush/bush.tscn" id="3_4717r"]
 [ext_resource type="TileSet" uid="uid://qfdi36p6u71k" path="res://world/cliff/cliff_tiles.tres" id="3_sc4t8"]
 [ext_resource type="PackedScene" uid="uid://dkor0cveupxsa" path="res://world/tree/tree.tscn" id="4_h5o24"]
-[ext_resource type="PackedScene" uid="uid://cn70l61wpygj2" path="res://enemies/bat.tscn" id="7_sc4t8"]
+[ext_resource type="PackedScene" uid="uid://cn70l61wpygj2" path="res://entities/enemies/bat.tscn" id="7_sc4t8"]
 [ext_resource type="PackedScene" uid="uid://b3nl3lt6qvp8k" path="res://world/grass/grass.tscn" id="8_ai45w"]
 
 [node name="World" type="Node2D"]
