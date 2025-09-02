@@ -20,7 +20,7 @@ func Move() -> void:
 	inputVector = Input.get_vector("left", "right", "up", "down")
 			
 	if inputVector:
-		lastInputVector = inputVector 
+		lastInputVector = inputVector
 		UpdateBlendPosition(inputVector * Vector2(1, -1))
 			
 	CheckAction("attack", "AttackState")
