@@ -5,6 +5,7 @@ class_name Entity
 
 func _ready() -> void:
 	stats.died.connect(OnDeath)
+	stats.health = stats.maxHP
 
 func OnDeath() -> void:
 	queue_free()

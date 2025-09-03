@@ -3,8 +3,8 @@ class_name Stats
 
 signal died
 
-@export var maxHP:int = 1
-var health:int = maxHP:
+@export var maxHP:int
+var health:int:
 	set(value):
 		if value <= 0:
 			died.emit()

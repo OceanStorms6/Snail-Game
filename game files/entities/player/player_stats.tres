@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cnyxotwtvdra2" path="res://entities/stats.gd" id="1_01d8e"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_01d8e")
 maxHP = 4
 speed = 100

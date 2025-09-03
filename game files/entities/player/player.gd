@@ -41,3 +41,6 @@ func UpdateBlendPosition(direction:Vector2) -> void:
 	animTree.set("parameters/StateMachine/MoveState/standing/blend_position", direction)
 	animTree.set("parameters/StateMachine/AttackState/blend_position", direction)
 	animTree.set("parameters/StateMachine/RollState/blend_position", direction)
+
+func OnHit(enemy:Bat) -> void:
+	

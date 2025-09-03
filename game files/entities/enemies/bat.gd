@@ -8,6 +8,7 @@ const friction:int = 200
 @onready var playback:AnimationNodeStateMachinePlayback = animTree.get("parameters/StateMachine/playback")
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 
+var attack:int = 1
 var playerInSight:Player
 
 func _physics_process(delta: float) -> void:
