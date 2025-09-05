@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cv0m7q23434px"]
+[gd_scene load_steps=13 format=4 uid="uid://cv0m7q23434px"]
 
 [ext_resource type="PackedScene" uid="uid://vrjqw2e4onkj" path="res://entities/player/player.tscn" id="1_6xmxd"]
 [ext_resource type="Texture2D" uid="uid://buo7f6smuxjvd" path="res://world/grass_background.png" id="1_tcf2h"]
@@ -6,8 +6,33 @@
 [ext_resource type="PackedScene" uid="uid://b3evcakvh84xf" path="res://world/bush/bush.tscn" id="3_4717r"]
 [ext_resource type="TileSet" uid="uid://qfdi36p6u71k" path="res://world/cliff/cliff_tiles.tres" id="3_sc4t8"]
 [ext_resource type="PackedScene" uid="uid://dkor0cveupxsa" path="res://world/tree/tree.tscn" id="4_h5o24"]
+[ext_resource type="Script" uid="uid://cnyxotwtvdra2" path="res://entities/stats.gd" id="7_4papg"]
 [ext_resource type="PackedScene" uid="uid://cn70l61wpygj2" path="res://entities/enemies/bat.tscn" id="7_sc4t8"]
 [ext_resource type="PackedScene" uid="uid://b3nl3lt6qvp8k" path="res://world/grass/grass.tscn" id="8_ai45w"]
+
+[sub_resource type="Resource" id="Resource_fyhu2"]
+resource_local_to_scene = true
+script = ExtResource("7_4papg")
+maxHP = 3
+speed = 50
+attack = 1
+metadata/_custom_type_script = "uid://cnyxotwtvdra2"
+
+[sub_resource type="Resource" id="Resource_ov2xu"]
+resource_local_to_scene = true
+script = ExtResource("7_4papg")
+maxHP = 4
+speed = 100
+attack = 1
+metadata/_custom_type_script = "uid://cnyxotwtvdra2"
+
+[sub_resource type="Resource" id="Resource_mad0u"]
+resource_local_to_scene = true
+script = ExtResource("7_4papg")
+maxHP = 3
+speed = 50
+attack = 1
+metadata/_custom_type_script = "uid://cnyxotwtvdra2"
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -69,9 +94,11 @@ position = Vector2(118, 172)
 
 [node name="bat" parent="." instance=ExtResource("7_sc4t8")]
 position = Vector2(253, 166)
+stats = SubResource("Resource_fyhu2")
 
 [node name="Player" parent="." instance=ExtResource("1_6xmxd")]
 position = Vector2(154, 126)
+stats = SubResource("Resource_ov2xu")
 
 [node name="grass" parent="." instance=ExtResource("8_ai45w")]
 position = Vector2(64, 88)
@@ -87,3 +114,4 @@ position = Vector2(80, 88)
 
 [node name="bat2" parent="." instance=ExtResource("7_sc4t8")]
 position = Vector2(96, 32)
+stats = SubResource("Resource_mad0u")

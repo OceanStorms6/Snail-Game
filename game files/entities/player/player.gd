@@ -1,6 +1,8 @@
 extends Entity
 class_name Player
 
+signal start_blinking
+
 const ROLL_SPEED:int = 125
 
 @onready var animTree:AnimationTree = $AnimationTree
@@ -42,5 +44,12 @@ func UpdateBlendPosition(direction:Vector2) -> void:
 	animTree.set("parameters/StateMachine/AttackState/blend_position", direction)
 	animTree.set("parameters/StateMachine/RollState/blend_position", direction)
 
-func OnHit(enemy:Bat) -> void:
-	
+func OnHit(hitbox:Area2D) -> void:
+	var enemy:Bat = hitbox.get_parent() 
+	if enemy:
+		stats.health -= enemy.stats.attack
+		start_blinking.emit()
+
+func OnDeath() -> void:
+	process_mode = Node.PROCESS_MODE_DISABLED
+	hide()

@@ -13,3 +13,4 @@ var health:int:
 			health = value
 
 @export var speed:int
+@export var attack:int
