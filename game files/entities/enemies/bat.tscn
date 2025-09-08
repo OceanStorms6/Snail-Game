@@ -1,10 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://cn70l61wpygj2"]
+[gd_scene load_steps=20 format=3 uid="uid://cn70l61wpygj2"]
 
 [ext_resource type="Script" uid="uid://d3nml1p1b4b1n" path="res://entities/enemies/bat.gd" id="1_tc28o"]
 [ext_resource type="Texture2D" uid="uid://djmcflwu0riuu" path="res://entities/enemies/bat.png" id="2_5of3o"]
 [ext_resource type="Resource" uid="uid://hj1auh0w12ux" path="res://entities/enemies/bat_stats.tres" id="2_n4v56"]
 [ext_resource type="Texture2D" uid="uid://cg0x8vr2chn7f" path="res://shadows/medium_shadow.png" id="3_wnjb2"]
-[ext_resource type="Script" uid="uid://bl54x3wtjjaav" path="res://entities/enemies/vision.gd" id="5_b255h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nwmda"]
 radius = 5.0
@@ -215,9 +214,6 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="vision" type="Area2D" parent="."]
 collision_mask = 2
-script = ExtResource("5_b255h")
-min_range = 10
-max_range = 90
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="vision"]
 position = Vector2(0, -5)
@@ -236,5 +232,4 @@ shape = SubResource("CircleShape2D_tc28o")
 
 [connection signal="body_entered" from="vision" to="." method="PlayerSpotted"]
 [connection signal="body_exited" from="vision" to="." method="PlayerLost"]
-[connection signal="update_vision" from="vision" to="vision/CollisionShape2D" method="set_polygon"]
 [connection signal="area_entered" from="hitbox" to="." method="OnHit" flags=3]

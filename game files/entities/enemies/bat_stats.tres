@@ -7,5 +7,5 @@ resource_local_to_scene = true
 script = ExtResource("1_ykdbu")
 maxHP = 3
 speed = 50
-attack = 1
+attack = 0
 metadata/_custom_type_script = "uid://cnyxotwtvdra2"
