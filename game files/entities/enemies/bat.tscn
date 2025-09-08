@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cn70l61wpygj2"]
+[gd_scene load_steps=21 format=3 uid="uid://cn70l61wpygj2"]
 
 [ext_resource type="Script" uid="uid://d3nml1p1b4b1n" path="res://entities/enemies/bat.gd" id="1_tc28o"]
 [ext_resource type="Texture2D" uid="uid://djmcflwu0riuu" path="res://entities/enemies/bat.png" id="2_5of3o"]
@@ -55,7 +55,7 @@ tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [8]
 }
 
@@ -126,7 +126,7 @@ tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
+"update": 0,
 "values": [0, 8]
 }
 
@@ -177,6 +177,9 @@ nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_shu70")
 nodes/StateMachine/position = Vector2(0, 140)
 node_connections = [&"output", 0, &"StateMachine"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4v56"]
+size = Vector2(180, 180)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_tc28o"]
 radius = 4.0
 
@@ -215,9 +218,9 @@ anim_player = NodePath("../AnimationPlayer")
 [node name="vision" type="Area2D" parent="."]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="vision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="vision"]
 position = Vector2(0, -5)
-polygon = PackedVector2Array(-90, -90, 90, -90, 90, 90, -90, 90, -90, -90, -10, -10, -10, 10, 10, 10, 10, -10, -10, -10)
+shape = SubResource("RectangleShape2D_n4v56")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(8, 0)
@@ -232,4 +235,3 @@ shape = SubResource("CircleShape2D_tc28o")
 
 [connection signal="body_entered" from="vision" to="." method="PlayerSpotted"]
 [connection signal="body_exited" from="vision" to="." method="PlayerLost"]
-[connection signal="area_entered" from="hitbox" to="." method="OnHit" flags=3]
