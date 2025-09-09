@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dedscsmj7mjwv"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="battlers" type="HSplitContainer" parent="."]
+layout_mode = 2
+
+[node name="potions" type="HBoxContainer" parent="."]
+layout_mode = 2
