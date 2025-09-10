@@ -1,0 +1,7 @@
+top down map movement (with interaction)
+Ingredients having a list of elements that affects what potions they make
+relationship mechanics (snails and NPCs)
+snail care, interaction and raising mechanics
+crop farming
+random battles
+character customization
